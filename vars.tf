@@ -53,7 +53,7 @@ variable rmquser {
 
 # password must be more than 12 characters
 variable rmqpass {
-    default "twelvecharacters"
+    default = "twelvecharacters"
 }
 
 # RDS credentials
