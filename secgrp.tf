@@ -1,6 +1,6 @@
 resource "aws_security_group" "vprofile-project16-bean-elb-sg" {
 # first security group is for the ALB for beanstalk
-    name = "vprofile-projet16-bean-elb-sg"
+    name = "vprofile-project16-bean-elb-sg"
     description = "Security group for bean-elb"
     vpc_id = module.vpc.vpc_id
     # the vpc is a module.  The module returns a lot of outptus
