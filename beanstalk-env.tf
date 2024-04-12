@@ -148,13 +148,13 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-bean-prod-env" 
   }
 
   setting {
-    namespace = "aws:elasticbeanstalk:commmand"
+    namespace = "aws:elasticbeanstalk:command"
     name      = "BatchSizeType"
     value     = "Fixed"
   }
 
   setting {
-    namespace = "aws:elasticbeanstalk:commmand"
+    namespace = "aws:elasticbeanstalk:command"
     name      = "BatchSize"
     value     = "1"
   }
