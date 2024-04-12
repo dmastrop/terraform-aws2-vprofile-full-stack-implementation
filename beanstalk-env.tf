@@ -7,7 +7,7 @@
 
 resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beanstalk-prod-env" {
   name        = "vprofile-project16-elastic-beanstalk-prod-env"
-  application = aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application
+  application = aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application.name
 
   # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html
   # tomcat deployment::
