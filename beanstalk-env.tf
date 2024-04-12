@@ -2,14 +2,27 @@
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_environment
 # Option Settings
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_environment#option-settings
+# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
+
 resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beanstalk-prod-env" {
   name        = "vprofile-project16-elastic-beanstalk-prod-env"
   application = aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application
+  
+  # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html
+  # tomcat deployment::
   # https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.java
+  # use the corretto 11 version: 64bit Amazon Linux 2023 v5.1.5 running Tomcat 9 Corretto 11
   #solution_stack_name = "64bit Amazon Linux 2 v4.1.1 running Tomcat 8.5 Correto 11"
   solution_stack_name = "64bit Amazon Linux 2023 v5.1.5 running Tomcat 9 Corretto 11"
+  # the cname_prefix is the prepend to the URL
   cname_prefix        = "vprofile-project16-bean-prod-domain"
 
+
+# the next blocks are a series of settings based upon the Option settings:
+# Option Settings
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_environment#option-settings
+# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
 
   setting {
     # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-ec2vpc
