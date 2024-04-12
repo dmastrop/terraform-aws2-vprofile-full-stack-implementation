@@ -99,11 +99,11 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-bean-prod-env" 
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "environment"
-    value     = "vprofile-project16-elastic-beanstalk-prod-env"
+    value     = "vprofile-project16-bean-prod-env"
   }
 
   setting {
-    namespace = "aws:elasticbeanstalk:applicaton:environment"
+    namespace = "aws:elasticbeanstalk:application:environment"
     name      = "LOGGING_APPENDER"
     value     = "GRAYLOG"
   }
