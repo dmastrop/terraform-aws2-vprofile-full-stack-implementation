@@ -1,7 +1,7 @@
 resource "aws_security_group" "vprofile-project16-bean-elb-sg" {
   # first security group is for the ALB for beanstalk
   name        = "vprofile-project16-bean-elb-sg"
-  description = "Security group for bean-elb"
+  description = "Security group for bean-elb application loadbalancer"
   vpc_id      = module.vpc.vpc_id
   # the vpc is a module.  The module returns a lot of outptus
   # https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest/examples/complete?tab=outputs
@@ -49,7 +49,7 @@ resource "aws_security_group" "vprofile-project16-bastion-sg" {
 
 resource "aws_security_group" "vprofile-project16-prod-beanstalk-sg" {
   name        = "vprofile-project16-prod-beanstalk-sg"
-  description = "Security group for beanstalk instances"
+  description = "Security group for beanstalk tomcat instances"
   vpc_id      = module.vpc.vpc_id
   egress {
     from_port   = 0

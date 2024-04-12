@@ -46,12 +46,13 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
   }
 
   setting {
+      # private subnet space for tomcat instances
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    # private subnet space for tomcat instances
     # The IDs of the Auto Scaling group subnet or subnets. If you have multiple subnets, specify the value as a single comma-separated string of subnet ID
-    value = join(",", [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]])
-    # value is a string not a list, but join will convert it to a list. We need a list
+    value = join(",", [module.vpc.private_subnets[0],module.vpc.private_subnets[1],module.vpc.private_subnets[2]])
+    # value is a string not a list, but join will convert the list to a string so that we can set the value as such.
+    # https://developer.hashicorp.com/terraform/language/functions/join
   }
 
   setting {
@@ -59,7 +60,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
     namespace = "aws:ec2:vpc"
     name      = "ELBSubnets"
     # The IDs of the subnet or subnets for the elastic load balancer. If you have multiple subnets, specify the value as a single comma-separated string of subnet IDs
-    value = join(",", [module.vpc.public_subnets[0], module.vpc.public_subnets[1], module.vpc.public_subnets[2]])
+    value = join(",", [module.vpc.public_subnets[0],module.vpc.public_subnets[1],module.vpc.public_subnets[2]])
   }
 
   setting {
@@ -98,7 +99,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "environment"
-    value     = "vprofile-project16-elastic-beanstalk-env"
+    value     = "vprofile-project16-elastic-beanstalk-prod-env"
   }
 
   setting {
@@ -139,6 +140,8 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
   }
 
   setting {
+    # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-environmentprocess
+    # aws:elasticbeanstalk:environment:process:default
     namespace = "aws:elasticbeanstalk:environment:process:default"
     name      = "StickinessEnabled"
     value     = "true"
@@ -163,18 +166,21 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
   }
 
   setting {
+    # this is the security group for tomcat instances on private subnet
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
     value     = aws_security_group.vprofile-project16-prod-beanstalk-sg.id
   }
 
   setting {
+    # this is the security group for the applicaton loadbalancer frontend on public subnet
     namespace = "aws:elbv2:loadbalancer"
     name      = "SecurityGroups"
     value     = aws_security_group.vprofile-project16-bean-elb-sg.id
   }
 
-  # sometimes the security groups are not created before beanstalk
+  # sometimes the security groups are not created before beanstalk environment
+  # this is a bug that can occur via timing. Most of the time it will figure this out but best to create dependency
   # use depends_on 
   depends_on = [aws_security_group.vprofile-project16-bean-elb-sg,aws_security_group.vprofile-project16-backend-sg,aws_security_group.vprofile-project16-prod-beanstalk-sg,aws_security_group.vprofile-project16-bastion-sg]
 }
