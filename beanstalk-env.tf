@@ -5,8 +5,8 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_environment#option-settings
 # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
 
-resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beanstalk-prod-env" {
-  name        = "vprofile-project16-elastic-beanstalk-prod-env"
+resource "aws_elastic_beanstalk_environment" "vprofile-project16-bean-prod-env" {
+  name        = "vprofile-project16-bean-prod-env"
   application = aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application.name
 
   # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html
@@ -32,7 +32,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-elastic-beansta
   }
 
   setting {
-    namespace = "aws:autoscaling:launchocnfiguration"
+    namespace = "aws:autoscaling:launchconfiguration"
     # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalinglaunchconfiguration
     name  = "IamInstanceProfile"
     value = "aws-elasticbeanstalk-ec2-role"

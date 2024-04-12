@@ -43,21 +43,25 @@ resource "aws_db_instance" "vprofile-project16-rds-server" {
 
 
 resource "aws_elasticache_cluster" "vprofile-project16-elasticache" {
-  cluster_id           = "vprofile-project16-elasticache"
-  engine               = "memcached"
-  node_type            = "cache.t2.micro"
-  num_cache_nodes      = 1
-  parameter_group_name = "default.memcached1.5"
-  port                 = 11211
-  security_group_ids   = [aws_security_group.vprofile-project16-backend-sg.id]
-  subnet_group_name    = aws_elasticache_subnet_group.vprofile-project16-elasticache-subgrp.name
+  cluster_id      = "vprofile-project16-elasticache"
+  engine          = "memcached"
+  node_type       = "cache.t2.micro"
+  num_cache_nodes = 1
+  #parameter_group_name = "default.memcached1.5"
+  parameter_group_name = "default.memcached1.6"
+  # update this to current minimum version
+  port               = 11211
+  security_group_ids = [aws_security_group.vprofile-project16-backend-sg.id]
+  subnet_group_name  = aws_elasticache_subnet_group.vprofile-project16-elasticache-subgrp.name
 }
 
 
 resource "aws_mq_broker" "vprofile-project16-rmq" {
-  broker_name        = "vprofile-project16-rmq"
-  engine_type        = "ActiveMQ"
-  engine_version     = "5.15.0"
+  broker_name = "vprofile-project16-rmq"
+  engine_type = "ActiveMQ"
+  #engine_version     = "5.15.0"
+  # update this to proper minimum 5.15.16
+  engine_version     = "5.15.16"
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.vprofile-project16-backend-sg.id]
   #subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]]
