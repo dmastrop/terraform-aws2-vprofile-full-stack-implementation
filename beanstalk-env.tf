@@ -41,7 +41,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-project16-bean-prod-env" 
   setting {
     namespace = "aws:ec2:vpc"
     # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-ec2vpc
-    name  = "AssociatePublicAddress"
+    name  = "AssociatePublicIpAddress"
     value = "false"
   }
 
