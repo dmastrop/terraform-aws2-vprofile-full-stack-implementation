@@ -22,12 +22,12 @@ variable "AMIS" {
 
 
 # use the private and public key from previous exercises
-variable PUB_KEY_PATH {
-    default = "vprofile-keypair-terraform-project16.pub"
+variable "PUB_KEY_PATH" {
+  default = "vprofile-keypair-terraform-project16.pub"
 }
 
-variable PRIV_KEY_PATH {
-    default = "vprofile-keypair-terraform-project16"
+variable "PRIV_KEY_PATH" {
+  default = "vprofile-keypair-terraform-project16"
 }
 
 
@@ -41,74 +41,74 @@ variable "USERNAME" {
 }
 
 
-variable my_ip {
-    default = "73.202.0.0/16"
+variable "my_ip" {
+  default = "73.202.0.0/16"
 }
 
 
 # we will use AWS RabbitMQ
-variable rmquser {
-    default = "rabbit"
+variable "rmquser" {
+  default = "rabbit"
 }
 
 # password must be more than 12 characters
-variable rmqpass {
-    default = "twelvecharacters"
+variable "rmqpass" {
+  default = "twelvecharacters"
 }
 
 # RDS credentials
-variable dbuser {
-    default = "admin"
+variable "dbuser" {
+  default = "admin"
 }
 
-variable dbpass {
-    default = "admin123"
+variable "dbpass" {
+  default = "admin123"
 }
 
-variable dbname {
-    default = "accounts"
-}
-
-
-
-
-variable instance_count {
-    default = "1"
+variable "dbname" {
+  default = "accounts"
 }
 
 
 
 
-variable VPC_NAME {
-    default = "vprofile-project16-VPC"
+variable "instance_count" {
+  default = "1"
 }
 
-variable VpcCIDR {
-    default = "172.21.0.0/16"
+
+
+
+variable "VPC_NAME" {
+  default = "vprofile-project16-VPC"
 }
 
-variable PubSub1CIDR {
-    default = "172.21.1.0/24"
+variable "VpcCIDR" {
+  default = "172.21.0.0/16"
 }
 
-variable PubSub2CIDR {
-    default = "172.21.2.0/24"
+variable "PubSub1CIDR" {
+  default = "172.21.1.0/24"
 }
 
-variable PubSub3CIDR {
-    default = "172.21.3.0/24"
+variable "PubSub2CIDR" {
+  default = "172.21.2.0/24"
 }
 
-variable PrivSub1CIDR {
-    default = "172.21.4.0/24"
+variable "PubSub3CIDR" {
+  default = "172.21.3.0/24"
 }
 
-variable PrivSub2CIDR {
-    default = "172.21.5.0/24"
+variable "PrivSub1CIDR" {
+  default = "172.21.4.0/24"
 }
 
-variable PrivSub3CIDR {
-    default = "172.21.6.0/24"
+variable "PrivSub2CIDR" {
+  default = "172.21.5.0/24"
+}
+
+variable "PrivSub3CIDR" {
+  default = "172.21.6.0/24"
 }
 
 
