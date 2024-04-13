@@ -10,6 +10,9 @@ resource "aws_instance" "vprofile-project16-bastion-host" {
   subnet_id = module.vpc.public_subnets[0]
   # this will create it in the first public subnet
 
+  associate_public_ip_address = "true"
+  # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance.html#associate_public_ip_address
+
   count = var.instance_count
 
   vpc_security_group_ids = [aws_security_group.vprofile-project16-bastion-sg.id]
