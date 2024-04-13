@@ -24,13 +24,16 @@ resource "aws_db_instance" "vprofile-project16-rds-server" {
   allocated_storage = 20
   storage_type      = "gp2"
   engine            = "mysql"
-  engine_version    = "8.0.32"
-  instance_class    = "db.t3.small"
+  engine_version = "5.7.44"
+  instance_class = "db.t3.micro"
+  #engine_version    = "8.0.32"
+  #instance_class    = "db.t3.small"
   #name                 = var.dbname
   db_name              = var.dbname
   username             = var.dbuser
   password             = var.dbpass
-  parameter_group_name = "default.mysql8.0"
+  #parameter_group_name = "default.mysql8.0"
+  parameter_group_name = "default.mysql5.7"
   multi_az             = "false"
   # this is for high avaliablity only
   publicly_accessible = "false"
