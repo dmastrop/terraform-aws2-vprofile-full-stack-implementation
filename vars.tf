@@ -38,6 +38,7 @@ variable "USERNAME" {
   # this is an amazon linux EC2 instance and not ubuntu
   default = "ubuntu"
   # this is the default user for ubuntu instance
+  # leave this at default for the ubuntu bastion host that will use this variable.
 }
 
 
