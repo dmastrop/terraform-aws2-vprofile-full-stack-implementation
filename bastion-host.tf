@@ -34,7 +34,7 @@ resource "aws_instance" "vprofile-project16-bastion-host" {
   provisioner "file" {
     content     = templatefile("templates/db-deploy.tmpl", { rds-endpoint = aws_db_instance.vprofile-project16-rds-server.address, dbuser = var.dbuser, dbpass = var.dbpass })
     destination = "/tmp/vprofile-dbdeploy.sh"
-    # this places the shell script into the /tmp directory on this bastion host
+    # this places the shell script into the /tmp directory on this bastion host with name vprofile-dbdeploy.tmpl
   }
 
   provisioner "remote-exec" {

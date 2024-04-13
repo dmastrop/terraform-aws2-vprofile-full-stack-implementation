@@ -88,6 +88,14 @@ resource "aws_security_group" "vprofile-project16-backend-sg" {
     security_groups = [aws_security_group.vprofile-project16-prod-beanstalk-sg.id]
     # allow traffic from the beanstalk instances to all of the backend server instances on all protocols
   }
+
+  ingress {
+    from_port = 3306
+    to_port = 3306
+    protocol = "tcp"
+    security_groups = [aws_security_group.vprofile-project16-bastion-sg.id]
+    # need to allow 3306 traffic from bastion host provisioner to the RDS server so that it can provision mysql server
+  }
 }
 
 
