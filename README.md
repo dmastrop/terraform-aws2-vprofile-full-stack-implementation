@@ -24,6 +24,11 @@ Note: the vprofile app does not work with mysql 8.0 so had to use 5.7.44 which i
 
 For now, the only manual part that has not been automated is the building of the artifact and the deployment of the artifact to the Elastic Beanstalk environment, but this can easily be automated with a github actions or jenkinsfile pipeline or on AWS itself with AWS Build and Code and Artifact/Deploy and Pipeline as in previous projects.
 
+1. terraform apply the IaaC
+2. modify the application.properties in source code for the proper endpoints in accordance with latest IaaC deployment in step 1.
+3. Rebuild the .war artifact with mvn install
+4. Deploy the .war to the beanstalk environment.
+
 A similar project will be done with GitOps with similar terraform IaaS but workflow to docker build and publish and to EKS rather than to Elastic Beanstalk.  Containers are much more easy and clean to deploy than EC2 server instances.  The docker container deployment can be orchestrated via K8s if required with the k8s cluster being setup with kops or kubeadm as in previous projects (project 17 will actually use helm which is a great k8s package manager). There are many solutions to the CI/CD deployment paradigm....
 
 
