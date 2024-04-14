@@ -31,7 +31,7 @@ A similar project will be done with GitOps with similar terraform IaaS but workf
 
 ======
 
-davemastropolo@Margarets-MacBook-Air terraform-aws2-vprofile-full-stack-implementation % terraform state list
+% terraform state list
 aws_db_instance.vprofile-project16-rds-server
 aws_db_subnet_group.vprofile-project16-rds-subgrp
 aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application
