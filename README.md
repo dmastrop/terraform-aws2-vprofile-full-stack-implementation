@@ -24,7 +24,7 @@ Note: the vprofile app does not work with mysql 8.0 so had to use 5.7.44 which i
 
 For now, the only manual part that has not been automated is the building of the artifact and the deployment of the artifact to the Elastic Beanstalk environment, but this can easily be automated with a github actions or jenkinsfile pipeline or on AWS itself with AWS Build and Code and Artifact/Deploy and Pipeline as in previous projects.
 
-A similar project will be done with GitOps with similar terraform IaaS but workflow to docker build and publish and to EKS rather than to Elastic Beanstalk.  Containers are much more easy and clean to deploy than EC2 server instances.  The docker container deployment can be orchestrated via K8s if required with the k8s cluster being setup with kops or kubeadm as in previous projects. There are many solutins to the CI/CD deployment paradigm....
+A similar project will be done with GitOps with similar terraform IaaS but workflow to docker build and publish and to EKS rather than to Elastic Beanstalk.  Containers are much more easy and clean to deploy than EC2 server instances.  The docker container deployment can be orchestrated via K8s if required with the k8s cluster being setup with kops or kubeadm as in previous projects. There are many solutions to the CI/CD deployment paradigm....
 
 
 
