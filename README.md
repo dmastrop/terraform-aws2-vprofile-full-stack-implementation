@@ -28,3 +28,44 @@ A similar project will be done with GitOps with similar terraform IaaS but workf
 
 
 
+
+======
+
+davemastropolo@Margarets-MacBook-Air terraform-aws2-vprofile-full-stack-implementation % terraform state list
+aws_db_instance.vprofile-project16-rds-server
+aws_db_subnet_group.vprofile-project16-rds-subgrp
+aws_elastic_beanstalk_application.vprofile-project16-elastic-beanstalk-prod-application
+aws_elastic_beanstalk_environment.vprofile-project16-bean-prod-env
+aws_elasticache_cluster.vprofile-project16-elasticache
+aws_elasticache_subnet_group.vprofile-project16-elasticache-subgrp
+aws_instance.vprofile-project16-bastion-host[0]
+aws_key_pair.vprofile-keypair-terraform-project16
+aws_mq_broker.vprofile-project16-rmq
+aws_security_group.vprofile-project16-backend-sg
+aws_security_group.vprofile-project16-bastion-sg
+aws_security_group.vprofile-project16-bean-elb-sg
+aws_security_group.vprofile-project16-prod-beanstalk-sg
+aws_security_group_rule.sec_group_backend_allow_itself
+module.vpc.aws_default_network_acl.this[0]
+module.vpc.aws_default_route_table.default[0]
+module.vpc.aws_default_security_group.this[0]
+module.vpc.aws_eip.nat[0]
+module.vpc.aws_internet_gateway.this[0]
+module.vpc.aws_nat_gateway.this[0]
+module.vpc.aws_route.private_nat_gateway[0]
+module.vpc.aws_route.public_internet_gateway[0]
+module.vpc.aws_route_table.private[0]
+module.vpc.aws_route_table.public[0]
+module.vpc.aws_route_table_association.private[0]
+module.vpc.aws_route_table_association.private[1]
+module.vpc.aws_route_table_association.private[2]
+module.vpc.aws_route_table_association.public[0]
+module.vpc.aws_route_table_association.public[1]
+module.vpc.aws_route_table_association.public[2]
+module.vpc.aws_subnet.private[0]
+module.vpc.aws_subnet.private[1]
+module.vpc.aws_subnet.private[2]
+module.vpc.aws_subnet.public[0]
+module.vpc.aws_subnet.public[1]
+module.vpc.aws_subnet.public[2]
+module.vpc.aws_vpc.this[0]
