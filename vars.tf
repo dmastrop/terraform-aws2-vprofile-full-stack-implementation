@@ -43,7 +43,8 @@ variable "USERNAME" {
 
 
 variable "my_ip" {
-  default = "73.202.0.0/16"
+  #default = "73.202.0.0/16"
+  default = "24.23.0.0/16"
 }
 
 

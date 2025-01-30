@@ -64,7 +64,9 @@ resource "aws_mq_broker" "vprofile-project16-rmq" {
   engine_type = "ActiveMQ"
   #engine_version     = "5.15.0"
   # update this to proper minimum 5.15.16
-  engine_version     = "5.15.16"
+  #engine_version     = "5.15.16"
+  #update again 1/2025 with minimum 5.17.6 or 5.18
+  engine_version = "5.17.6"
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.vprofile-project16-backend-sg.id]
   #subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]]
