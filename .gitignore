@@ -17,7 +17,7 @@ aws_hosts
 #*keypair*
 #*.pub
 
-#vprofile-keypair-terraform-project16
+vprofile-keypair-terraform-project16
 # this should not be commented out but this is a trial project and the EC2 instance is very short lived
 
 
