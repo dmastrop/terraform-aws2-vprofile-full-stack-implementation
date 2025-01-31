@@ -86,7 +86,7 @@ jobs:
       - name: Terraform init
         id: init
         #run: terraform init -upgrade -backend-config="bucket=$BUCKET_TF_STATE"
-        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE" --upgrade
         # BUCKET_TF_STATE is specified in env above.  The state will be stored in the S3 bucket.
 
       - name: Terraform format
