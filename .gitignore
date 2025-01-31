@@ -8,12 +8,18 @@ aws_hosts
 # course .gitignore
 # .gitignore
 
+
 # misc
 *.pem
-*keypair
-keypair*
-*keypair*
-*.pub
+
+#*keypair
+#keypair*
+#*keypair*
+#*.pub
+
+vprofile-keypair-terraform-project16
+
+
 
 
 # Local .terraform directories
