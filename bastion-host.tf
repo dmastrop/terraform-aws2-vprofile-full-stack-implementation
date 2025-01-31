@@ -48,8 +48,11 @@ resource "aws_instance" "vprofile-project16-bastion-host" {
   connection {
     # this will instruct terraform/my pc on how to open the connection to this bastion host so that the above provisioners can be run
     user        = var.USERNAME
+    
     private_key = file(var.PRIV_KEY_PATH)
     # the keys are all on root of this project
+    # this is a security issue but the EC2 instance is very short lived and this is a trial project
+
     host = self.public_ip
   }
 

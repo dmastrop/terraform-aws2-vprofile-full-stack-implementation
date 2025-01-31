@@ -121,6 +121,18 @@ jobs:
         # any nonzero failure code is fine
         # container will be killed and job will fail
 
+      # The next block of steps are for aws configure of the runner with the IAM administrator in github secrets
+      # Once the aws configure is done, the runner has access to aws cli to apply configurations with kubectl onto
+      # the EKS cluster created by the terraform apply, in  previous step.
+      # This runs as part of the stage branch. The apply is done only for push to main
+      # The runner should have access to AWS credentials as part of the Actions secrets
+      # For project16 move this block before the terraform apply block
+      - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
 
      # The following steps will only execute with a push to the main branch (except for Configure AWS credentials, this will be
      # executed with either push to stage or push to main)   
@@ -133,17 +145,7 @@ jobs:
 
 
 
-      # The next block of steps are for aws configure of the runner with the IAM administrator in github secrets
-      # Once the aws configure is done, the runner has access to aws cli to apply configurations with kubectl onto
-      # the EKS cluster created by the terraform apply, in  previous step.
-      # This runs as part of the stage branch. The apply is done only for push to main
-      # The runner should have access to AWS credentials as part of the Actions secrets
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+
 
 
 
